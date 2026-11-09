@@ -1,31 +1,458 @@
 <!DOCTYPE html>
-<html lang="es">
-  <head>
+<html lang="es" class="h-full scroll-smooth">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Título de tu página</title>
-  </head>
-  <body>
-    <h1>¡Hola, mundo!</h1>
-    <h2> Nuria Franco
-    <p>Este es el contenido visible de la página.</p>
+    <title>IA & Apoyo Emocional — Editorial</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Syncopate & Inter for Stradivarius High-Fashion Feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #faf7f8;
+            color: #111111;
+        }
+
+        .font-brand {
+            font-family: 'Syncopate', sans-serif;
+        }
+
+        /* Stradivarius minimalist borders & buttons */
+        .border-editorial {
+            border-color: rgba(17, 17, 17, 0.15);
+        }
+
+        .btn-stradivarius {
+            background-color: #111111;
+            color: #ffffff;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .btn-stradivarius:hover {
+            background-color: #e5b3c3;
+            color: #111111;
+        }
+
+        .btn-outline-stradivarius {
+            border: 1px solid #111111;
+            color: #111111;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .btn-outline-stradivarius:hover {
+            background-color: #111111;
+            color: #ffffff;
+        }
+
+        /* Custom subtle scrollbar */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #faf7f8;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4a5b4;
+        }
+    </style>
+</head>
+<body class="min-h-full flex flex-col justify-between selection:bg-pink-200 selection:text-black">
+
+    <!-- Stradivarius Top Announcement Bar -->
+    <div class="bg-black text-white text-[11px] font-medium tracking-widest uppercase py-2 text-center px-4">
+        ENVÍO EMOCIONAL GRATUITO — ATENCIÓN 24/7 SIN JUICIOS
+    </div>
+
+    <!-- Sticky Editorial Navigation Header -->
+    <header class="sticky top-0 z-50 bg-[#faf7f8]/90 backdrop-blur-md border-b border-editorial transition-all">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-btn" class="md:hidden text-lg p-2 text-black focus:outline-none">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+
+            <!-- Brand Logo -->
+            <a href="#" class="font-brand font-bold text-lg sm:text-xl tracking-widest text-black uppercase">
+                STRADIVARIUS <span class="text-xs font-sans tracking-normal font-light italic opacity-60 text-pink-700">/ MENTAL CARE</span>
+            </a>
+
+            <!-- Desktop Menu Links -->
+            <nav class="hidden md:flex items-center space-x-10 text-xs tracking-widest uppercase font-medium">
+                <a href="#hero" class="hover:underline underline-offset-8 transition-all">Manifiesto</a>
+                <a href="#beneficios" class="hover:underline underline-offset-8 transition-all">Colección</a>
+                <a href="#reflexion" class="hover:underline underline-offset-8 transition-all">Reflexión</a>
+                <a href="#demo" class="hover:underline underline-offset-8 transition-all">Asistente IA</a>
+                <a href="#video-section" class="hover:underline underline-offset-8 transition-all">Lookbook Video</a>
+            </nav>
+
+            <!-- Action Icons -->
+            <div class="flex items-center space-x-5 text-sm">
+                <a href="#demo" title="Chat" class="hover:opacity-60 transition-opacity">
+                    <i class="fa-regular fa-comment text-lg"></i>
+                </a>
+                <a href="#reflexion" title="Favoritos" class="hover:opacity-60 transition-opacity">
+                    <i class="fa-regular fa-heart text-lg"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-editorial bg-[#faf7f8] px-6 py-6 flex flex-col space-y-4 text-xs tracking-widest uppercase font-medium">
+            <a href="#hero" class="py-2 border-b border-black/5">Manifiesto</a>
+            <a href="#beneficios" class="py-2 border-b border-black/5">Colección</a>
+            <a href="#reflexion" class="py-2 border-b border-black/5">Reflexión</a>
+            <a href="#demo" class="py-2 border-b border-black/5">Asistente IA</a>
+            <a href="#video-section" class="py-2">Lookbook Video</a>
+        </div>
+    </header>
+
+    <!-- Editorial Hero Section -->
+    <section id="hero" class="border-b border-editorial py-20 lg:py-28 px-6 max-w-7xl mx-auto w-full">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 space-y-8">
+                <span class="inline-block text-xs font-semibold tracking-widest uppercase border border-black/20 px-3 py-1 rounded-full text-pink-700 bg-pink-50">
+                    EDICIÓN LIMITADA • IA & EMOCIÓN
+                </span>
+                <h1 class="font-brand text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight uppercase leading-[1.05]">
+                    El nuevo lenguaje del bienestar.
+                </h1>
+                <p class="text-base sm:text-lg font-light leading-relaxed opacity-80 max-w-xl">
+                    Explora un espacio seguro donde la tecnología se viste de empatía digital. Herramientas diseñadas para procesar tus pensamientos con la sutileza de una firma de alta costura.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#demo" class="btn-stradivarius text-xs uppercase tracking-widest px-8 py-4 font-semibold inline-flex items-center gap-3">
+                        <span>Iniciar conversación</span>
+                        <i class="fa-solid fa-arrow-right-long text-xs"></i>
+                    </a>
+                    <a href="#beneficios" class="btn-outline-stradivarius text-xs uppercase tracking-widest px-8 py-4 font-semibold">
+                        Ver Colección
+                    </a>
+                </div>
+            </div>
+
+            <!-- Visual Editorial Card -->
+            <div class="lg:col-span-5">
+                <div class="border border-black/10 bg-white p-8 relative shadow-sm">
+                    <div class="aspect-[3/4] bg-neutral-100 border border-black/5 p-6 flex flex-col justify-between relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-100/50 via-transparent to-transparent"></div>
+                        <div class="flex justify-between items-start z-10">
+                            <span class="font-brand text-xs tracking-widest">Nº 01 / LOOKBOOK</span>
+                            <i class="fa-solid fa-asterisk text-pink-400 text-xs animate-spin" style="animation-duration: 10s;"></i>
+                        </div>
+                        <div class="z-10 space-y-4">
+                            <blockquote class="text-lg font-light italic leading-snug">
+                                "Hablar con la Inteligencia Artificial no reemplaza la terapia humana, pero abre una ventana de expresión libre a cualquier hora."
+                            </blockquote>
+                            <div class="text-[10px] tracking-widest uppercase font-mono border-t border-black/10 pt-3 flex justify-between">
+                                <span>24/7 Disponible</span>
+                                <span>100% Confidencial</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Lookbook Grid (Beneficios) -->
+    <section id="beneficios" class="border-b border-editorial py-24 px-6 max-w-7xl mx-auto w-full">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+            <div>
+                <span class="text-xs font-brand tracking-widest uppercase text-pink-700 block mb-2">LOOKBOOK EMOCIONAL</span>
+                <h2 class="font-brand text-3xl sm:text-4xl font-bold uppercase tracking-tight">Beneficios de la colección</h2>
+            </div>
+            <p class="text-sm font-light max-w-md opacity-70">
+                Diseño inteligente adaptado a la cotidianidad contemporánea y las demandas de la salud mental moderna.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Item 1 -->
+            <div class="bg-white border border-editorial p-8 flex flex-col justify-between hover:border-black transition-colors group">
+                <div class="space-y-6">
+                    <span class="font-mono text-xs opacity-40">01 // ESCUCHA</span>
+                    <div class="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center text-base group-hover:bg-black group-hover:text-white transition-all">
+                        <i class="fa-solid fa-comment-dots"></i>
+                    </div>
+                    <h3 class="font-brand text-lg font-bold uppercase tracking-wider">Desahogo Inmediato</h3>
+                    <p class="text-xs leading-relaxed opacity-70 font-light">
+                        Sin listas de espera ni horarios. Expresa tus pensamientos y canaliza episodios de ansiedad en tiempo real.
+                    </p>
+                </div>
+                <div class="mt-8 pt-4 border-t border-black/5 text-[10px] font-mono tracking-widest uppercase opacity-50">
+                    DISPONIBLE SIEMPRE
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="bg-white border border-editorial p-8 flex flex-col justify-between hover:border-black transition-colors group">
+                <div class="space-y-6">
+                    <span class="font-mono text-xs opacity-40">02 // REFLEXIÓN</span>
+                    <div class="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center text-base group-hover:bg-black group-hover:text-white transition-all">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </div>
+                    <h3 class="font-brand text-lg font-bold uppercase tracking-wider">Journaling Guiado</h3>
+                    <p class="text-xs leading-relaxed opacity-70 font-light">
+                        Detecta patrones emocionales recurrentes y clarifica tus prioridades mediante preguntas estructuradas.
+                    </p>
+                </div>
+                <div class="mt-8 pt-4 border-t border-black/5 text-[10px] font-mono tracking-widest uppercase opacity-50">
+                    ANÁLISIS NEUTRO
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="bg-white border border-editorial p-8 flex flex-col justify-between hover:border-black transition-colors group">
+                <div class="space-y-6">
+                    <span class="font-mono text-xs opacity-40">03 // PRIVACIDAD</span>
+                    <div class="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center text-base group-hover:bg-black group-hover:text-white transition-all">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h3 class="font-brand text-lg font-bold uppercase tracking-wider">Espacio Sin Juicios</h3>
+                    <p class="text-xs leading-relaxed opacity-70 font-light">
+                        Un primer paso libre de estigmas sociales para quienes necesitan exteriorizar vulnerabilidades por primera vez.
+                    </p>
+                </div>
+                <div class="mt-8 pt-4 border-t border-black/5 text-[10px] font-mono tracking-widest uppercase opacity-50">
+                    100% SEGURO
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Editorial Interactive Reflection Selector -->
+    <section id="reflexion" class="border-b border-editorial py-24 px-6 max-w-7xl mx-auto w-full">
+        <div class="bg-white border border-editorial p-8 sm:p-16">
+            <div class="max-w-3xl mx-auto text-center space-y-4 mb-12">
+                <span class="text-xs font-brand tracking-widest uppercase text-pink-700 block">TARJETAS DE INSPIRACIÓN</span>
+                <h2 class="font-brand text-3xl font-bold uppercase tracking-tight">Selecciona tu estado actual</h2>
+            </div>
+
+            <!-- Mood Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button onclick="setReflection('abrumado')" class="btn-outline-stradivarius text-xs uppercase tracking-widest px-6 py-3 font-semibold">
+                    Abrumado
+                </button>
+                <button onclick="setReflection('ansioso')" class="btn-outline-stradivarius text-xs uppercase tracking-widest px-6 py-3 font-semibold">
+                    Ansiedad
+                </button>
+                <button onclick="setReflection('motivado')" class="btn-outline-stradivarius text-xs uppercase tracking-widest px-6 py-3 font-semibold">
+                    Motivación
+                </button>
+            </div>
+
+            <!-- Dynamic Quote Box -->
+            <div id="reflection-box" class="border border-black/10 bg-[#faf7f8] p-8 sm:p-12 text-center max-w-2xl mx-auto relative">
+                <span class="font-brand text-4xl block mb-4 opacity-20">“</span>
+                <p id="reflection-text" class="text-base sm:text-lg font-light leading-relaxed italic transition-opacity duration-300">
+                    Haz clic en uno de los estados superiores para desplegar la reflexión editorial.
+                </p>
+                <span id="reflection-author" class="block mt-6 text-[10px] font-mono tracking-widest uppercase opacity-50">
+                    -- STRADIVARIUS MENTAL CARE • REFLEXIÓN
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Minimalist AI Assistant Simulator -->
+    <section id="demo" class="border-b border-editorial py-24 px-6 max-w-4xl mx-auto w-full">
+        <div class="text-center mb-12 space-y-3">
+            <span class="text-xs font-brand tracking-widest uppercase text-pink-700 block">PROOTOTIPO INTERACTIVO</span>
+            <h2 class="font-brand text-3xl font-bold uppercase tracking-tight">Simulador de Asistente IA</h2>
+        </div>
+
+        <div class="bg-white border border-editorial flex flex-col h-[550px]">
+            <!-- Header -->
+            <div class="px-6 py-4 border-b border-editorial flex items-center justify-between bg-[#faf7f8]">
+                <div class="flex items-center gap-3">
+                    <span class="w-2 h-2 rounded-full bg-pink-500 animate-ping"></span>
+                    <span class="font-brand text-xs tracking-widest uppercase font-bold">AURA / ASISTENTE VIRTUAL</span>
+                </div>
+                <span class="text-[10px] font-mono opacity-50 uppercase">EDICIÓN EN VIVO</span>
+            </div>
+
+            <!-- Chat Container -->
+            <div id="chat-messages" class="flex-1 overflow-y-auto p-6 space-y-6">
+                <div class="flex gap-4 max-w-[85%]">
+                    <div class="w-7 h-7 rounded-full bg-black text-white flex-shrink-0 flex items-center justify-center text-[10px] font-brand">
+                        A
+                    </div>
+                    <div class="bg-[#faf7f8] border border-black/5 p-4 text-xs leading-relaxed font-light">
+                        Hola. Soy Aura. Este es un entorno confidencial para ordenar tus pensamientos. ¿Cómo te encuentras en este momento?
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Input -->
+            <form id="chat-form" class="p-4 border-t border-editorial bg-[#faf7f8] flex gap-3">
+                <input type="text" id="chat-input" placeholder="ESCRIBE TU MENSAJE AQUÍ..." required 
+                    class="flex-1 bg-white border border-editorial px-4 py-3 text-xs uppercase tracking-wider font-light focus:outline-none focus:border-black">
+                <button type="submit" class="btn-stradivarius px-6 py-3 text-xs uppercase tracking-widest font-semibold flex items-center gap-2">
+                    <span>Enviar</span>
+                    <i class="fa-solid fa-paper-plane text-[10px]"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Embedded YouTube Video Section (Responsive Stradivarius Style) -->
+    <section id="video-section" class="py-24 px-6 max-w-5xl mx-auto w-full">
+        <div class="text-center mb-12 space-y-3">
+            <span class="text-xs font-brand tracking-widest uppercase text-pink-700 block">AUDIOVISUAL</span>
+            <h2 class="font-brand text-3xl font-bold uppercase tracking-tight">Campañas & Contenido</h2>
+        </div>
+
+        <div class="bg-white border border-editorial p-4 shadow-sm">
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
+                <iframe 
+                    src="https://www.youtube.com/embed/yYn-uHnLeGQ" 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+                    title="Vídeo de YouTube"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stradivarius High-Fashion Minimalist Footer -->
+    <footer class="border-t border-editorial bg-white pt-16 pb-12 px-6 max-w-7xl mx-auto w-full">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="space-y-4">
+                <span class="font-brand font-bold text-lg tracking-widest uppercase block">STRADIVARIUS</span>
+                <p class="text-xs font-light opacity-60 leading-relaxed">
+                    Edición editorial enfocada en la convergencia entre la tecnología y el apoyo psicofísico contemporáneo.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="font-brand text-xs font-bold uppercase tracking-widest mb-4">Navegación</h4>
+                <ul class="space-y-2 text-xs font-light opacity-70">
+                    <li><a href="#hero" class="hover:underline">Manifiesto</a></li>
+                    <li><a href="#beneficios" class="hover:underline">Colección de Beneficios</a></li>
+                    <li><a href="#reflexion" class="hover:underline">Reflexión Diaria</a></li>
+                    <li><a href="#demo" class="hover:underline">Simulador IA</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-brand text-xs font-bold uppercase tracking-widest mb-4">Información Legal</h4>
+                <p class="text-xs font-light opacity-60 leading-relaxed">
+                    Este portal es una demostración conceptual. La IA no sustituye el diagnóstico ni el tratamiento profesional. En caso de crisis, consulta con profesionales de la salud.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="font-brand text-xs font-bold uppercase tracking-widest mb-4">Newsletter</h4>
+                <form class="space-y-3" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="TU EMAIL AQUÍ" class="w-full bg-[#faf7f8] border border-editorial px-3 py-2 text-xs focus:outline-none focus:border-black uppercase">
+                    <button class="w-full btn-stradivarius text-[10px] uppercase tracking-widest py-2 font-semibold">Suscribirme</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="border-t border-black/10 pt-8 flex flex-col sm:flex-row justify-between items-center text-[10px] font-mono tracking-widest uppercase opacity-50 gap-4">
+            <p>&copy; 2026 STRADIVARIUS STYLE — IA & APOYO EMOCIONAL</p>
+            <p>ESPAÑA / ESPAÑOL</p>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Mobile Drawer Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Reflection Selector Content
+        const reflections = {
+            abrumado: "Está bien hacer una pausa. Descompón tus metas en acciones mínimas. No tienes que solucionar todo el panorama hoy.",
+            ansioso: "Enfócate en lo que puedes controlar en este instante. Respira profundo: inhala en 4 segundos, exhala en 4 segundos.",
+            motivado: "Usa este impulso con intención. Mantén el ritmo con calma y gratitud hacia tu propio recorrido."
+        };
+
+        function setReflection(type) {
+            const boxText = document.getElementById('reflection-text');
+            if (reflections[type]) {
+                boxText.style.opacity = '0';
+                setTimeout(() => {
+                    boxText.innerText = `${reflections[type]}`;
+                    boxText.style.opacity = '1';
+                }, 200);
+            }
+        }
+
+        // Chat Simulator Logic
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-messages');
+
+        const aiResponses = [
+            "Te escucho detenidamente. Es totalmente natural sentirse así.",
+            "Gracias por expresar esto. ¿Hay alguna situación concreta que creas que lo ha detonado?",
+            "Ponerlo en palabras ya es una forma de procesarlo y tomar distancia.",
+            "Trátate con la misma empatía con la que escucharías a una persona apreciada.",
+            "¿Quieres profundizar más sobre esta emoción o prefieres una estrategia de pausa?"
+        ];
+
+        chatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const text = chatInput.value.trim();
+            if (!text) return;
+
+            // Render User Message
+            const userMsgDiv = document.createElement('div');
+            userMsgDiv.className = 'flex justify-end';
+            userMsgDiv.innerHTML = `
+                <div class="bg-black text-white p-4 text-xs leading-relaxed font-light max-w-[85%]">
+                    ${escapeHtml(text)}
+                </div>
+            `;
+            chatMessages.appendChild(userMsgDiv);
+            chatInput.value = '';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            // Render AI Response
+            setTimeout(() => {
+                const randomResponse = aiResponses[Math.floor(Math.random() * aiResponses.length)];
+                const aiMsgDiv = document.createElement('div');
+                aiMsgDiv.className = 'flex gap-4 max-w-[85%]';
+                aiMsgDiv.innerHTML = `
+                    <div class="w-7 h-7 rounded-full bg-black text-white flex-shrink-0 flex items-center justify-center text-[10px] font-brand">
+                        A
+                    </div>
+                    <div class="bg-[#faf7f8] border border-black/5 p-4 text-xs leading-relaxed font-light">
+                        ${randomResponse}
+                    </div>
+                `;
+                chatMessages.appendChild(aiMsgDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 600);
+        });
+
+        function escapeHtml(text) {
+            return text.replace(/&/g, "&amp;")
+                       .replace(/</g, "&lt;")
+                       .replace(/>/g, "&gt;")
+                       .replace(/"/g, "&quot;")
+                       .replace(/'/g, "&#039;");
+        }
+    </script>
   </body>
-  <style>
-  body {
-    background-color: #ffd1dc;
-    color: #ffffff;
-  }
-</style>
-  <div style="text-align: center; margin: 40px 0;">
-  <iframe 
-    width="560" 
-    height="315" 
-    src="https://www.youtube.com/embed/yYn-uHnLeGQ" 
-    title="Reproductor de vídeo de YouTube" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    referrerpolicy="strict-origin-when-cross-origin" 
-    allowfullscreen>
-  </iframe>
-</div>
-</html>
+  </html>
+  
+    
